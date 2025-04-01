@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Card</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+        @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
+        body {
+            font-family: 'Indie Flower', cursive !important;
+            background: #FFC107; /*CAPE HONEY*/
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ::selection {
+            background: transparent;
+        }
+
+        h4 {
+            font-size: 26px;
+            line-height: 1px;
+            font-family: 'Amatic SC', cursive !important;
+        }
+
+        .color1 {color:#FFC107} /*MOUNTAIN MEADOW*/
+        .color2 {color:#556B2F;margin-bottom: 45px;} /*TALL POPPY*/
+
+        .card {
+            color: #8B5A2B; /*SHERPA BLUE*/
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            height: 400px;
+            background: #e0e1dc;
+            transform-style: preserve-3d;
+            transform: translate(-50%,-50%) perspective(2000px);
+            box-shadow: inset 300px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+            transition: 1s;
+        }
+
+        .card.hovered {
+            transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+            box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+        }
+
+        .card:before {
+            content:'';
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #FFF3E0;
+            transform-origin: bottom;
+            transform: skewX(-45deg);
+        }
+
+        .card:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 5px;
+            height: 100%;
+            background: #92A29C;
+            transform-origin: left;
+            transform: skewY(-45deg);
+        }
+
+        .card .imgBox {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-origin: left;
+            transition: .7s;
+            z-index: 1; /* Ensure image stays on top initially */
+        }
+
+        .card .bark {
+            position: absolute;
+            background: #FDE3A7;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: .7s;
+        }
+
+        .card .imgBox img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures image fills the space properly */
+            display: block;
+            background: #e0e1dc; /* Matches card background for any empty space */
+        }
+
+        .card.hovered .imgBox {
+            transform: rotateY(-135deg);
+        }
+
+        .card.hovered .bark {
+            opacity: 1;
+            transition: .6s;
+            box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+        }
+
+        .card .details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            padding: 0 0 0 10px;
+            z-index: -1;
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+
+        .card .details p {
+            font-size: 15px;
+            line-height: 5px;
+            transform: rotate(-10deg);
+            padding: 0 0 0 20px;
+        }
+
+        .card .details h4 {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        /* Overlay text on the image */
+        .card .imgBox .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFB300; /* SHERPA BLUE */
+            font-family: 'Amatic SC', cursive;
+            font-size: 40px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* White shadow for readability */
+            z-index: 2;
+        }
+        .overlay {
+            font-size: 1em;
+            font-weight: bold;
+        }
+        .overlay span:nth-child(1) {
+            color: #6B8E23; /* Orange */
+        }
+        .color1 {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .color1 span {
+            color: #6D4C41; /* Brown */
+        }
+    </style>
+</head>
+<body>
+    <div class="card" onclick="toggleHoverEffect()">
+        <div class="imgBox">
+            <div class="bark"></div>
+            <img src="./Yellow Flowers Watercolor Sunflowers Frame Word Template And Google Docs For Free Download.jpeg" alt="Sunflower">
+            <div class="overlay"><span>Happy Birthday!</span><br><span>Sunshine</span></div>
+        </div>
+        <div class="details">
+            <h4 class="color1">Bright <span>as a</span> Sunflower!</h4>
+            <h4 class="color2 margin">(HAPPY BIRTHDAY)</h4>
+            <p>Dear Srushti,</p>
+            <p>Your warmth radiates</p>
+            <p>like the sun, touching</p>
+            <p>everyone with your grace</p>
+            <p>and kindness, bringing</p>
+            <p>light to everyone around.</p>
+            <p>May this year bring you</p>
+            <p>strength to bloom where</p>
+            <p>you're planted and courage</p>
+            <p>to chase your dreams.</p>
+            <p class="text-right">With love,</p>
+            <p class="text-right">- Nik</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the 'hovered' class on card click
+        function toggleHoverEffect() {
+            const card = document.querySelector('.card');
+            card.classList.toggle('hovered');
+        }
+    </script>
+</body>
+</html>
